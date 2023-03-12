@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <style>
 
@@ -24,7 +24,7 @@
         <img src="logo.png" alt="logo" height="180"; width="170">
         <b><h2 style="margin: auto; padding: 10px; text-align: center; display: inline;">Alumni Registration Form</h2></b>
         
-        <form class="row g-3" style="margin: auto; padding: 10px;" action="result.html" method="GET">
+        <form class="row g-3" style="margin: auto; padding: 10px;" onsubmit="return getData()" method="GET">
             <div class="col-md-6" style="padding: 10px;">
                 <label for="fname" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="fname" placeholder="Enter first name">
@@ -78,29 +78,32 @@
             </div>
           
             <div class="col-12">
-                <button type="submit" value="Submit" class="btn btn-primary btn-block mb-4" onclick="getData()">Submit</button>
+                <button type="submit" value="Submit" class="btn btn-primary btn-block mb-4">Submit</button>
             </div>
 
             <script>
                 function getData()
                 {
                     //gettting the values
-                    var fname1 = document.getElementById("fname").value;
-                    var lname1 = document.getElementById("lname").value;
-                    var email1 = document.getElementById("email").value;
-                    var phoneno1 = document.getElementById("phoneNo").value; 
-                    var studyprg1 = document.getElementById("studyprg").value; 
-                    var yeargrad1 = document.getElementById("yeargrad").value; 
-
-                    alert("Registered Successfully!");
+                    var fname = document.getElementById("fname").value;
+                    var lname = document.getElementById("lname").value;
+                    var email = document.getElementById("email").value;
+                    var phoneno = document.getElementById("phoneNo").value; 
+                    var studyprg = document.getElementById("studyprg").value; 
+                    var yeargrad = document.getElementById("yeargrad").value; 
 
                     //saving the values in local storage
-                    localStorage.setItem("txtValue1",fname1);
-                    localStorage.setItem("txtValue2", lname1);
-                    localStorage.setItem("txtValue3", email1);
-                    localStorage.setItem("txtValue4", phoneno1);
-                    localStorage.setItem("txtValue5", studyprg1);
-                    localStorage.setItem("txtValue6", yeargrad1);   
+                    localStorage.setItem("fname",fname);
+                    localStorage.setItem("lname", lname);
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("phoneno", phoneno);
+                    localStorage.setItem("studyprg", studyprg);
+                    localStorage.setItem("yeargrad", yeargrad);   
+
+                    alert("Registered Successfully!");
+                    window.location.href = "result.html";
+
+                    return false;
                 }
             </script>
           

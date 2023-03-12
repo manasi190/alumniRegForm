@@ -6,14 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <style>
 
         body{
             background-image: url("bg.jpg");
             background-size: cover;
+        }
+
+        li{
+            list-style-type:none;
         }
 
     </style>
@@ -48,33 +52,60 @@
                 <img src="logo.png" alt="logo" height="180"; width="170">
                 <b><h2 style="margin: auto; padding: 10px; text-align: center; display: inline;">Alumni Registration Form </h2></b>
 
-                <div class="container" style="background-color: #99EDC3; margin: auto; padding: 10px; margin-top: 10px; margin-bottom: 10px;">
+                <div class="container" style="background-color: #99EDC3; box-shadow: 2px; margin: auto; padding: 10px; margin-top: 10px; margin-bottom: 10px;">
                     <h3 style="margin: auto; padding: 10px; text-align: center; color: #000;">Thanks for Registering!</h3>
                     <p style="padding: 10px; text-align: center; color: #000;">Further procedures will be emailed to you!</p>
                 </div>
 
-                <script>
-                    document.getElementById("fname").innerHTML=localStorage.getItem("txtValue1");
-                    document.getElementById("lname").innerHTML=localStorage.getItem("txtValue2");
-                    document.getElementById("email").innerHTML=localStorage.getItem("txtValue3");
-                    document.getElementById("phoneno").innerHTML=localStorage.getItem("txtValue4");
-                    document.getElementById("studyprg").innerHTML=localStorage.getItem("txtValue5");
-                    document.getElementById("yeargrad").innerHTML=localStorage.getItem("txtValue6");
-                </script>
-
                 <div style="text-align: center;">
                    
                     <h3>Your Response:</h3>
-                    
-                    <h4>First name: <span id="fname"></span></h4>
-                    <h4>Last name: <span id="lname"></span></h4>
-                    <h4>Email: <span id="email"></span></h4>
-                    <h4>Phone No.: <span id="phoneno"></span></h4>
-                    <h4>Program of Study: <span id="studyprg"></span></h4>
-                    <h4>Year of Graduation: <span id="yeargrad"></span></h4>
+                    <div style="border: #000; width: fit-content; border-style: outset; margin: auto; padding: 10px;">
+                        <ul style="padding: 10px; text-align: left;">
+                            <li>
+                                <b>First name: </b><span id="fname"></span>
+                            </li>
+                            <li>
+                                <b>Last name: </b><span id="lname"></span>
+                            </li>
+                            <li>
+                                <b>Email: </b><span id="email"></span>
+                            </li>
+                            <li>
+                                <b>Phone No.: </b><span id="phoneno"></span>
+                            </li>
+                            <li>
+                                <b>Program of Study: </b><span id="studyprg"></span>
+                            </li>
+                            <li>
+                                <b>Year of Graduation: </b><span id="yeargrad"></span>
+                            </li>
+                        </ul>
+                       
+                    </div>
                 </div>
 
             </div>
+
+            <script>
+
+                var fname = localStorage.getItem("fname");
+                var lname = localStorage.getItem("lname");
+                var email = localStorage.getItem("email");
+                var phoneno = localStorage.getItem("phoneno");
+                var studyprg = localStorage.getItem("studyprg");
+                var yeargrad = localStorage.getItem("yeargrad");
+
+                document.getElementById("fname").innerHTML = fname;
+                document.getElementById("lname").innerHTML = lname;
+                document.getElementById("email").innerHTML = email;
+                document.getElementById("phoneno").innerHTML = phoneno;
+                document.getElementById("studyprg").innerHTML = studyprg;
+                document.getElementById("yeargrad").innerHTML = yeargrad;
+
+                localStorage.clear();
+                
+            </script>
 
     </body>
 </html>
